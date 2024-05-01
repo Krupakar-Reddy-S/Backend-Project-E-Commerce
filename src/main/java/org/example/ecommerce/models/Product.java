@@ -17,9 +17,11 @@ public class Product {
     @ManyToOne
     private Inventory inventory;
 
+    @Enumerated(EnumType.STRING)
+    private Rating rating;
+
     private String name;
     private String description;
     private Double price;
 
-    private Rating rating;
 }
