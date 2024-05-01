@@ -1,6 +1,7 @@
 package org.example.ecommerce.repositories;
 
 
+import org.example.ecommerce.models.InventoryItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,15 +9,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface InventoryItemRepository extends JpaRepository<InventoryItemRepository, Long> {
+public interface InventoryItemRepository extends JpaRepository<InventoryItem, Long> {
     @Override
-    Optional<InventoryItemRepository> findById(Long id);
+    Optional<InventoryItem> findById(Long id);
 
     @Override
-    List<InventoryItemRepository> findAll();
+    List<InventoryItem> findAll();
 
     @Override
-    InventoryItemRepository save(InventoryItemRepository inventoryItem);
+    InventoryItem save(InventoryItem inventoryItem);
 
     @Override
     void deleteById(Long id);
