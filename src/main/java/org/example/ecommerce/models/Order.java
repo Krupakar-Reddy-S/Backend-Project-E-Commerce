@@ -1,5 +1,6 @@
 package org.example.ecommerce.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +18,9 @@ public class Order {
     private List<OrderItem> orderItem;
 
     @ManyToOne
+    @JsonBackReference
     private Customer customer;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
+    private OrderStatus orderStatus = OrderStatus.PENDING;
 }

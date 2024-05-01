@@ -1,5 +1,6 @@
 package org.example.ecommerce.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,8 +15,9 @@ public class Inventory {
     private Long id;
 
     @OneToMany(mappedBy = "inventory")
+    @JsonBackReference
     private List<InventoryItem> inventoryItems;
 
     @Enumerated(EnumType.STRING)
-    private InventoryLevel inventoryLevel;
+    private InventoryLevel inventoryLevel = InventoryLevel.L3;
 }

@@ -2,6 +2,7 @@ package org.example.ecommerce.services;
 
 import org.example.ecommerce.exceptions.OrderNotFoundException;
 import org.example.ecommerce.models.Order;
+import org.example.ecommerce.models.OrderStatus;
 import org.example.ecommerce.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,31 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
+    }
+
+    @Override
+    public OrderStatus getOrderStatus(Long id) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+
+        if (optionalOrder.isPresent()) {
+            return optionalOrder.get().getOrderStatus();
+        } else {
+            throw new OrderNotFoundException(id, "Order with id " + id + " not found!");
+        }
+    }
+
+    @Override
+    public OrderStatus updateOrderStatus(Long id, OrderStatus orderStatus) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+
+        if (optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            order.setOrderStatus(orderStatus);
+            orderRepository.save(order);
+
+            return order.getOrderStatus();
+        } else {
+            throw new OrderNotFoundException(id, "Order with id " + id + " not found!");
+        }
     }
 }
