@@ -41,4 +41,22 @@ public class ProductController {
         logger.info("Deleting product by id: " + id);
         productService.deleteProduct(id);
     }
+
+    @GetMapping("/category")
+    public List<Product> getProductOfCategory(@RequestParam("categoryId") Long categoryId) {
+        logger.info("Getting product of category by id: " + categoryId);
+        return productService.getProductsByCategory(categoryId);
+    }
+
+    @GetMapping(params = "sortByPriceAsc")
+    public List<Product> getProductsByPriceAsc() {
+        logger.info("Getting products by price in ascending order...");
+        return productService.getProductsByPriceAsc();
+    }
+
+    @GetMapping(params = "sortByPriceDesc")
+    public List<Product> getProductsByPriceDesc() {
+        logger.info("Getting products by price in descending order...");
+        return productService.getProductsByPriceDesc();
+    }
 }

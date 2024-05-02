@@ -24,7 +24,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Override
     void deleteById(Long id);
 
-    List<Product> findProductByCategory(Category category);
+    List<Product> findByCategoryId(Long categoryId);
     List<Product> findProductsByOrderByPriceAsc();
     List<Product> findProductsByOrderByPriceDesc();
 }

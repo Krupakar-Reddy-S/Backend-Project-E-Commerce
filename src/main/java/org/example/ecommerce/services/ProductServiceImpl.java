@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
@@ -60,5 +60,20 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return productRepository.findByCategoryId(categoryId);
+    }
+
+    @Override
+    public List<Product> getProductsByPriceAsc() {
+        return productRepository.findProductsByOrderByPriceAsc();
+    }
+
+    @Override
+    public List<Product> getProductsByPriceDesc() {
+        return productRepository.findProductsByOrderByPriceDesc();
     }
 }
