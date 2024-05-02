@@ -1,7 +1,8 @@
 package org.example.ecommerce.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.*;
-import lombok.*;
 
 @Getter
 @Setter

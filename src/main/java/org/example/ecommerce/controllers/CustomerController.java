@@ -1,8 +1,10 @@
 package org.example.ecommerce.controllers;
 
-import org.example.ecommerce.models.Customer;
 import org.example.ecommerce.models.Order;
+import org.example.ecommerce.models.Customer;
+import org.example.ecommerce.models.OrderStatus;
 import org.example.ecommerce.services.CustomerService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +49,14 @@ public class CustomerController {
     public List<Order> getCustomerOrders(@PathVariable("id") Long id) {
         logger.info("Getting customer orders by id: " + id);
         return customerService.getCustomerOrders(id);
+    }
+
+    @GetMapping("/{id}/orders/status")
+    public List<Order> getCustomerOrdersByStatus(@PathVariable("id") Long id, @RequestParam("status") String status) {
+        logger.info("Getting customer orders by status: " + status);
+        List<Order> orders = customerService.getCustomerOrders(id);
+
+        orders.removeIf(order -> !order.getOrderStatus().equals(OrderStatus.valueOf(status)));
+        return orders;
     }
 }

@@ -2,7 +2,6 @@ package org.example.ecommerce.services;
 
 import org.example.ecommerce.models.Order;
 import org.example.ecommerce.models.Customer;
-import org.example.ecommerce.models.OrderStatus;
 
 import java.util.List;
 

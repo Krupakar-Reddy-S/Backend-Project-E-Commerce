@@ -50,8 +50,8 @@ Develop a system to manage an online store's inventory, sales, and user interact
 - POST: Add a new product or update an existing product `/products/{id}`
 - DELETE: Remove a product `/products/{id}`
 - GET: Retrieve product by category `/products/category/{id}`
-- GTE: Retrieve product sorted by price ascending `products?sortByPriceAsc=true`
-- GET: Retrieve product sorted by price descending `products?sortByPriceDesc=true`
+- GET: Retrieve product sorted by price ascending `products?sortByPriceAsc={boolean}`
+- GET: Retrieve product sorted by price descending `products?sortByPriceDesc={boolean}`
 
 ### 2. `/categories`
 - GET: Retrieve all categories `/categories`
@@ -77,6 +77,7 @@ Develop a system to manage an online store's inventory, sales, and user interact
 - POST: Add a new customer or update an existing customer `/customers/{id}`
 - DELETE: Remove a customer `/customers/{id}`
 - GET: Retrieve customer orders `/customers/{id}/orders`
+- GET: Retrieve customer orders by status `/customers/{id}/orders?status={status}`
 
 ### 6. `/orders`
 - GET: Retrieve all orders `/orders`

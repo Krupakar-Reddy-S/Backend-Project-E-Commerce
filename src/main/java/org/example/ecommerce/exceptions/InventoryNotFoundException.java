@@ -1,6 +1,7 @@
 package org.example.ecommerce.exceptions;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

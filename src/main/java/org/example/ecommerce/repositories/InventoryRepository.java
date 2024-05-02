@@ -2,7 +2,6 @@ package org.example.ecommerce.repositories;
 
 import org.example.ecommerce.models.Inventory;
 
-import org.example.ecommerce.models.Order;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 

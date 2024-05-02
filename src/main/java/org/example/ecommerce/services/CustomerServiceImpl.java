@@ -1,10 +1,7 @@
 package org.example.ecommerce.services;
 
-import org.example.ecommerce.exceptions.OrderNotFoundException;
 import org.example.ecommerce.models.Order;
 import org.example.ecommerce.models.Customer;
-import org.example.ecommerce.models.OrderStatus;
-import org.example.ecommerce.repositories.OrderRepository;
 import org.example.ecommerce.repositories.CustomerRepository;
 import org.example.ecommerce.exceptions.CustomerNotFoundException;
 
@@ -16,15 +13,13 @@ import java.util.Optional;
 @Service
 public class CustomerServiceImpl implements CustomerService{
     private final CustomerRepository customerRepository;
-    private final OrderRepository orderRepository;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository, OrderRepository orderRepository) {
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        this.orderRepository = orderRepository;
     }
 
     @Override
-    public Customer getCustomerById(Long id) {
+    public Customer getCustomerById(Long id) throws CustomerNotFoundException{
         Optional<Customer> optionalCustomer = customerRepository.findById(id);
 
         if (optionalCustomer.isPresent()) {

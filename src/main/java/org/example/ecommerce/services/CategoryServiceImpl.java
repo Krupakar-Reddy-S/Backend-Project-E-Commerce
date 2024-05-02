@@ -1,8 +1,9 @@
 package org.example.ecommerce.services;
 
 import org.example.ecommerce.models.Category;
-import org.example.ecommerce.exceptions.CategoryNotFoundException;
 import org.example.ecommerce.repositories.CategoryRepository;
+import org.example.ecommerce.exceptions.CategoryNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

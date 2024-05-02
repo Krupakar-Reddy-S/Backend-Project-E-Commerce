@@ -3,7 +3,6 @@ package org.example.ecommerce.repositories;
 import java.util.List;
 import java.util.Optional;
 
-import org.example.ecommerce.models.Category;
 import org.example.ecommerce.models.Product;
 
 import org.springframework.stereotype.Repository;

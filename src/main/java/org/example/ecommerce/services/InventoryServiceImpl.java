@@ -1,8 +1,9 @@
 package org.example.ecommerce.services;
 
-import org.example.ecommerce.exceptions.InventoryNotFoundException;
 import org.example.ecommerce.models.Inventory;
 import org.example.ecommerce.repositories.InventoryRepository;
+import org.example.ecommerce.exceptions.InventoryNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
